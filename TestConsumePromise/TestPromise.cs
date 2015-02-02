@@ -1,5 +1,5 @@
-﻿using Termine.Promises;
-using Termine.Promises.ExectionControlWithRedis;
+﻿using System.Threading;
+using Termine.Promises;
 using Termine.Promises.Generics;
 using Termine.Promises.Interfaces;
 using Termine.Promises.NLogInstrumentation;
@@ -10,12 +10,24 @@ namespace TestConsumePromise
     {
         public override void Init()
         {
-            this.WithDuplicatePrevention();
+            //this.WithDuplicatePrevention();
             this.WithNLogInstrumentation();
+            this.WithPreStart("prestart", PreStart);
+            this.WithPostEnd("postEnd", PostEnd);
             this.WithValidator("validate", Validate);
             this.WithExecutor("transform", Transform);
             this.WithExecutor("transformAgain", TransformAgain);
             this.WithSuccessHandler("reportSuccess", ReportSuccess);
+        }
+
+        private void PostEnd(TestPromiseWorkload testPromiseWorkload)
+        {
+            Trace(new GenericEventMessage(0, "postEnd"));
+        }
+
+        private void PreStart(TestPromiseWorkload testPromiseWorkload)
+        {
+            Trace(new GenericEventMessage(0, "prestart"));
         }
 
         private void ReportSuccess(IAmAPromise<TestPromiseWorkload> amAPromise)
@@ -30,6 +42,7 @@ namespace TestConsumePromise
         private void TransformAgain(TestPromiseWorkload testPromiseWorkload)
         {
             testPromiseWorkload.Result = string.Format("pre.{0}", testPromiseWorkload.Result);
+            //Thread.Sleep(5000);
         }
 
         private void Validate(TestPromiseWorkload testPromiseWorkload)

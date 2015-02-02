@@ -55,17 +55,21 @@
     <Reference Include="protobuf-net">
       <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Common">
-      <HintPath>..\packages\ServiceStack.Common.Signed.4.0.35\lib\net40\ServiceStack.Common.dll</HintPath>
+    <Reference Include="ServiceStack.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Common.Signed.4.0.36\lib\net40\ServiceStack.Common.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\packages\ServiceStack.Interfaces.4.0.35\lib\portable-wp80+sl5+net40+win8+monotouch+monoandroid\ServiceStack.Interfaces.dll</HintPath>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Interfaces.4.0.36\lib\portable-wp80+sl5+net40+win8+monotouch+monoandroid\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Redis">
-      <HintPath>..\packages\ServiceStack.Redis.Signed.4.0.35\lib\net40\ServiceStack.Redis.dll</HintPath>
+    <Reference Include="ServiceStack.Redis, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Redis.Signed.4.0.36\lib\net40\ServiceStack.Redis.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\packages\ServiceStack.Text.Signed.4.0.35\lib\net40\ServiceStack.Text.dll</HintPath>
+    <Reference Include="ServiceStack.Text, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Text.Signed.4.0.36\lib\net40\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="Sodium">
       <HintPath>..\packages\libsodium-net.0.6.0\lib\Net40\Sodium.dll</HintPath>
@@ -77,35 +81,37 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Configuration" />
-    <Reference Include="Termine.Promises.Base, Version=0.0.5508.28714, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.Base, Version=0.0.5511.31267, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.Base.0.0.5508.28714\lib\net45\Termine.Promises.Base.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.Base.0.0.5511.31267\lib\net45\Termine.Promises.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.Encryption, Version=0.0.5507.29180, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.Encryption, Version=0.0.5511.31322, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.Encryption.0.0.5507.29180\lib\net45\Termine.Promises.Encryption.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.Encryption.0.0.5511.31322\lib\net45\Termine.Promises.Encryption.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.ExectionControlWithRedis">
-      <HintPath>..\packages\Termine.Promises.ExectionControlWithRedis.0.0.5508.28719\lib\net45\Termine.Promises.ExectionControlWithRedis.dll</HintPath>
-    </Reference>
-    <Reference Include="Termine.Promises.FluentValidation, Version=0.0.5508.28714, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.ExectionControlWithRedis, Version=0.0.5511.31377, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.FluentValidation.0.0.5508.28714\lib\net45\Termine.Promises.FluentValidation.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.ExectionControlWithRedis.0.0.5511.31377\lib\net45\Termine.Promises.ExectionControlWithRedis.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.NLogInstrumentation, Version=0.0.5508.28714, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.FluentValidation, Version=0.0.5511.31322, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.NLogInstrumentation.0.0.5508.28714\lib\net45\Termine.Promises.NLogInstrumentation.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.FluentValidation.0.0.5511.31322\lib\net45\Termine.Promises.FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.Web, Version=0.0.5508.29060, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.NLogInstrumentation, Version=0.0.5511.31377, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.Web.0.0.5508.29060\lib\net45\Termine.Promises.Web.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.NLogInstrumentation.0.0.5511.31377\lib\net45\Termine.Promises.NLogInstrumentation.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.WithProtobuf, Version=0.0.5508.28720, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.Web, Version=0.0.5511.31424, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.WithProtobuf.0.0.5508.28720\lib\net45\Termine.Promises.WithProtobuf.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.Web.0.0.5511.31424\lib\net45\Termine.Promises.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.WithRedis">
-      <HintPath>..\packages\Termine.Promises.WithRedis.0.0.5507.28112\lib\net45\Termine.Promises.WithRedis.dll</HintPath>
+    <Reference Include="Termine.Promises.WithProtobuf, Version=0.0.5511.31384, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Termine.Promises.WithProtobuf.0.0.5511.31384\lib\net45\Termine.Promises.WithProtobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Termine.Promises.WithRedis, Version=0.0.5511.31377, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Termine.Promises.WithRedis.0.0.5511.31377\lib\net45\Termine.Promises.WithRedis.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
