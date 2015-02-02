@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="TestPromise.cs" />
     <Compile Include="TestPromiseWorkload.cs" />
+    <Compile Include="EchoHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
