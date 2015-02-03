@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Termine.Promises;
+﻿using Termine.Promises;
 using Termine.Promises.Generics;
 using Termine.Promises.Interfaces;
 using Termine.Promises.NLogInstrumentation;
@@ -20,14 +19,16 @@ namespace TestConsumePromise
             this.WithSuccessHandler("reportSuccess", ReportSuccess);
         }
 
-        private void PostEnd(TestPromiseWorkload testPromiseWorkload)
-        {
-            Trace(new GenericEventMessage(0, "postEnd"));
-        }
+        
 
         private void PreStart(TestPromiseWorkload testPromiseWorkload)
         {
             Trace(new GenericEventMessage(0, "prestart"));
+        }
+
+        private void PostEnd(TestPromiseWorkload testPromiseWorkload)
+        {
+            Trace(new GenericEventMessage(0, "postEnd"));
         }
 
         private void ReportSuccess(IAmAPromise<TestPromiseWorkload> amAPromise)
@@ -39,6 +40,7 @@ namespace TestConsumePromise
         {
             testPromiseWorkload.Result = string.Format("{0}-{1}", testPromiseWorkload.RequestId, "finished");
         }
+
         private void TransformAgain(TestPromiseWorkload testPromiseWorkload)
         {
             testPromiseWorkload.Result = string.Format("pre.{0}", testPromiseWorkload.Result);
