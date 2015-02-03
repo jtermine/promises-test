@@ -19,14 +19,16 @@ namespace TestConsumePromise
             this.WithSuccessHandler("reportSuccess", ReportSuccess);
         }
 
-        private void PostEnd(TestPromiseWorkload testPromiseWorkload)
-        {
-            Trace(new GenericEventMessage(0, "postEnd"));
-        }
+        
 
         private void PreStart(TestPromiseWorkload testPromiseWorkload)
         {
             Trace(new GenericEventMessage(0, "prestart"));
+        }
+
+        private void PostEnd(TestPromiseWorkload testPromiseWorkload)
+        {
+            Trace(new GenericEventMessage(0, "postEnd"));
         }
 
         private void ReportSuccess(IAmAPromise<TestPromiseWorkload> amAPromise)

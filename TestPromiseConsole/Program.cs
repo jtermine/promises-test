@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace TestPromiseConsole
 {
-    internal class Client
+    internal static class Client
     {
-        private const int sendChunkSize = 256;
-        private const int receiveChunkSize = 256;
-        private const bool verbose = true;
-        private static readonly object consoleLock = new object();
-        private static readonly TimeSpan delay = TimeSpan.FromMilliseconds(30000);
-        private static readonly UTF8Encoding encoder = new UTF8Encoding();
-        private static ClientWebSocket webSocket;
+        private const int SendChunkSize = 256;
+        private const int ReceiveChunkSize = 256;
+        private const bool Verbose = true;
+        private static readonly object ConsoleLock = new object();
+        private static readonly TimeSpan Delay = TimeSpan.FromMilliseconds(30000);
+        private static readonly UTF8Encoding Encoder = new UTF8Encoding();
+        private static ClientWebSocket _webSocket;
 
         private static void Main(string[] args)
         {
@@ -28,8 +28,8 @@ namespace TestPromiseConsole
         {
             try
             {
-                webSocket = new ClientWebSocket();
-                await webSocket.ConnectAsync(new Uri(uri), CancellationToken.None);
+                _webSocket = new ClientWebSocket();
+                await _webSocket.ConnectAsync(new Uri(uri), CancellationToken.None);
                 await Task.WhenAll(Receive(), Send());
             }
             catch (Exception ex)
@@ -38,11 +38,11 @@ namespace TestPromiseConsole
             }
             finally
             {
-                if (webSocket != null)
-                    webSocket.Dispose();
+                if (_webSocket != null)
+                    _webSocket.Dispose();
                 Console.WriteLine();
 
-                lock (consoleLock)
+                lock (ConsoleLock)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("WebSocket closed.");
@@ -54,18 +54,18 @@ namespace TestPromiseConsole
         private static async Task Send()
         {
             //byte[] buffer = encoder.GetBytes("{\"op\":\"blocks_sub\"}"); //"{\"op\":\"unconfirmed_sub\"}");
-            byte[] buffer = encoder.GetBytes("{\"op\":\"unconfirmed_sub\"}");
+            byte[] buffer = Encoder.GetBytes("{\"op\":\"unconfirmed_sub\"}");
 
             for (int i = 0; i < 20; i++)
             {
                 await
-                    webSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true,
+                    _webSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true,
                         CancellationToken.None);
 
-                while (webSocket.State == WebSocketState.Open)
+                while (_webSocket.State == WebSocketState.Open)
                 {
                     LogStatus(false, buffer, buffer.Length);
-                    await Task.Delay(delay);
+                    await Task.Delay(Delay);
                 }    
             }
             
@@ -73,14 +73,14 @@ namespace TestPromiseConsole
 
         private static async Task Receive()
         {
-            var buffer = new byte[receiveChunkSize];
-            while (webSocket.State == WebSocketState.Open)
+            var buffer = new byte[ReceiveChunkSize];
+            while (_webSocket.State == WebSocketState.Open)
             {
                 WebSocketReceiveResult result =
-                    await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                    await _webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                 if (result.MessageType == WebSocketMessageType.Close)
                 {
-                    await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
+                    await _webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, string.Empty, CancellationToken.None);
                 }
                 else
                 {
@@ -91,13 +91,12 @@ namespace TestPromiseConsole
 
         private static void LogStatus(bool receiving, byte[] buffer, int length)
         {
-            lock (consoleLock)
+            lock (ConsoleLock)
             {
                 Console.ForegroundColor = receiving ? ConsoleColor.Green : ConsoleColor.Gray;
                 //Console.WriteLine("{0} ", receiving ? "Received" : "Sent");
 
-                if (verbose)
-                    Console.WriteLine(encoder.GetString(buffer));
+                Console.WriteLine(Encoder.GetString(buffer));
 
                 Console.ResetColor();
             }
