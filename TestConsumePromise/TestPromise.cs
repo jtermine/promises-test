@@ -19,8 +19,6 @@ namespace TestConsumePromise
             this.WithSuccessHandler("reportSuccess", ReportSuccess);
         }
 
-        
-
         private void PreStart(TestPromiseWorkload testPromiseWorkload)
         {
             Trace(new GenericEventMessage(0, "prestart"));
