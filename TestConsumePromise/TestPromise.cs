@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using Termine.Promises;
+﻿using Termine.Promises;
 using Termine.Promises.Generics;
 using Termine.Promises.Interfaces;
 using Termine.Promises.NLogInstrumentation;
@@ -39,6 +38,7 @@ namespace TestConsumePromise
         {
             testPromiseWorkload.Result = string.Format("{0}-{1}", testPromiseWorkload.RequestId, "finished");
         }
+
         private void TransformAgain(TestPromiseWorkload testPromiseWorkload)
         {
             testPromiseWorkload.Result = string.Format("pre.{0}", testPromiseWorkload.Result);
@@ -47,7 +47,7 @@ namespace TestConsumePromise
 
         private void Validate(TestPromiseWorkload testPromiseWorkload)
         {
-            if (string.IsNullOrEmpty(testPromiseWorkload.RequestId)) Fatal(new GenericEventMessage(1, "RequestId is null or empty."));
+            if (string.IsNullOrEmpty(testPromiseWorkload.RequestId)) Abort(new GenericEventMessage(1, "RequestId is null or empty."));
         }
     }
 }
