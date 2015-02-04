@@ -1,7 +1,9 @@
-﻿using Termine.Promises;
+﻿using System.Threading;
+using Termine.Promises;
 using Termine.Promises.Generics;
 using Termine.Promises.Interfaces;
 using Termine.Promises.NLogInstrumentation;
+using Termine.Promises.ZMQ;
 
 namespace TestConsumePromise
 {
@@ -11,6 +13,7 @@ namespace TestConsumePromise
         {
             //this.WithDuplicatePrevention();
             this.WithNLogInstrumentation();
+            this.WithRabbitMQ();
             this.WithPreStart("prestart", PreStart);
             this.WithPostEnd("postEnd", PostEnd);
             this.WithValidator("validate", Validate);
@@ -42,7 +45,6 @@ namespace TestConsumePromise
         private void TransformAgain(TestPromiseWorkload testPromiseWorkload)
         {
             testPromiseWorkload.Result = string.Format("pre.{0}", testPromiseWorkload.Result);
-            //Thread.Sleep(5000);
         }
 
         private void Validate(TestPromiseWorkload testPromiseWorkload)
