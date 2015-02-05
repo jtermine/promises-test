@@ -39,9 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EasyNetQ">
-      <HintPath>..\packages\EasyNetQ.0.40.6.355\lib\net40\EasyNetQ.dll</HintPath>
-    </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
@@ -107,9 +104,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Termine.Promises.NLogInstrumentation.0.0.5512.40556\lib\net45\Termine.Promises.NLogInstrumentation.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.Web, Version=0.0.5513.15878, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.Web, Version=0.0.5514.10996, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.Web.0.0.5513.15878\lib\net45\Termine.Promises.Web.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.Web.0.0.5514.10996\lib\net45\Termine.Promises.Web.dll</HintPath>
     </Reference>
     <Reference Include="Termine.Promises.WithProtobuf, Version=0.0.5512.40560, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -119,9 +116,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Termine.Promises.WithRedis.0.0.5512.40559\lib\net45\Termine.Promises.WithRedis.dll</HintPath>
     </Reference>
-    <Reference Include="Termine.Promises.ZMQ, Version=0.0.5513.15836, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Termine.Promises.ZMQ, Version=0.0.5514.10479, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Termine.Promises.ZMQ.0.0.5513.15836\lib\net45\Termine.Promises.ZMQ.dll</HintPath>
+      <HintPath>..\packages\Termine.Promises.ZMQ.0.0.5514.10479\lib\net45\Termine.Promises.ZMQ.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

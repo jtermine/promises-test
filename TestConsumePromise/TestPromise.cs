@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using Termine.Promises;
-using Termine.Promises.ExectionControlWithRedis;
+﻿using Termine.Promises;
 using Termine.Promises.Generics;
 using Termine.Promises.Interfaces;
 using Termine.Promises.NLogInstrumentation;
@@ -12,9 +10,9 @@ namespace TestConsumePromise
     {
         public override void Init()
         {
-            this.WithDuplicatePrevention();
+            //this.WithDuplicatePrevention();
             this.WithNLogInstrumentation();
-            //this.WithRabbitMQ();
+            this.WithRabbitMQ();
             this.WithPreStart("prestart", PreStart);
             this.WithPostEnd("postEnd", PostEnd);
             this.WithValidator("validate", Validate);
