@@ -2,8 +2,7 @@
 
 namespace TestConsumePromise.Collections
 {
-    public class NewCollectionWorkload: GenericWorkload
+    public class NewPropertyWorkload : GenericWorkload
     {
-        
     }
 }
